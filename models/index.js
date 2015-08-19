@@ -43,7 +43,6 @@ Hotel = mongoose.model('Hotel', hotelSchema);
 Activity = mongoose.model('Activity', activitySchema);
 Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
-
 module.exports = {
 	Place: Place,
 	Hotel : Hotel,
