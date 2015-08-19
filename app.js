@@ -28,12 +28,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(sassMiddleware({
     /* Options */
-    src: path.join(__dirname, 'bower_components'),
-    dest: path.join(__dirname, 'bower_components'),
+    src: path.join(__dirname, 'public'),
+    dest: path.join(__dirname, 'public'),
     debug: true,
     outputStyle: 'compressed',
 }));
-app.use("/bower_components",express.static(path.join(__dirname, 'bower_components')));
+app.use(express.static(path.join(__dirname, '/bower_components')));
+//app.use("/",express.static(path.join(__dirname, 'public')));
+
 
 app.use('/', routes);
 app.use('/users', users);
