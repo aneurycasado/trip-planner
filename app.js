@@ -3,9 +3,9 @@ var path = require('path');
 var logger = require('morgan');
 var swig = require('swig');
 var bodyParser = require('body-parser');
-
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var sassMiddleware = require('node-sass-middleware');
 
 // var Place = require("./models/index.js").Place;
 // var Activity = require("./models/index.js").Activity;
@@ -26,7 +26,14 @@ app.set('view engine', 'html');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(sassMiddleware({
+    /* Options */
+    src: path.join(__dirname, 'bower_components'),
+    dest: path.join(__dirname, 'bower_components'),
+    debug: true,
+    outputStyle: 'compressed',
+}));
+app.use("/bower_components",express.static(path.join(__dirname, 'bower_components')));
 
 app.use('/', routes);
 app.use('/users', users);
