@@ -7,17 +7,17 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-var Place = require("./models/index.js").Place;
-var Activity = require("./models/index.js").Activity;
-var Restaurant = require("./models/index.js").Restaurant;
-var Hotel = require("./models/index.js").Hotel;
+// var Place = require("./models/index.js").Place;
+// var Activity = require("./models/index.js").Activity;
+// var Restaurant = require("./models/index.js").Restaurant;
+// var Hotel = require("./models/index.js").Hotel;
 
 var app = express();
 
-var server = app.listen(3000, function(){
-	
-	console.log("listeneing");
-});
+// var server = app.listen(3000, function(){
+//
+// 	console.log("listeneing");
+// });
 
 // view engine setup
 app.engine('html', swig.renderFile);
