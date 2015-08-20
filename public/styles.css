@@ -6,6 +6,12 @@ body {
   color: #444444;
   padding: .4em; }
 
+#addDay {
+  display: none; }
+
+#changeMe {
+  display: none; }
+
 #tabs {
   float: left;
   text-align: left;
