@@ -11,7 +11,8 @@ body{
 // }
 .navbar {
     margin-bottom: 0 !important;
-    width:100%
+    width:100%;
+    z-index: 1;
 }
 
 
@@ -34,6 +35,8 @@ body{
   text-align:left;
   width: 20%;
   padding-left: 0;
+  z-index: 1;
+  display: inline;
   .label{
     padding: .5em;
     font-size: 1.3em;
@@ -60,8 +63,10 @@ body{
   }
 }
 #map-canvas{
-  width:80vw;
+  width:100vw;
   height:100vh;
-  float: left;
-  padding-left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+
 }

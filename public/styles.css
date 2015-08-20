@@ -6,7 +6,8 @@ body {
 
 .navbar {
   margin-bottom: 0 !important;
-  width: 100%; }
+  width: 100%;
+  z-index: 1; }
 
 #title {
   color: #444444; }
@@ -21,7 +22,9 @@ body {
   float: left;
   text-align: left;
   width: 20%;
-  padding-left: 0; }
+  padding-left: 0;
+  z-index: 1;
+  display: inline; }
   #tabs .label {
     padding: .5em;
     font-size: 1.3em;
@@ -42,7 +45,8 @@ body {
     color: #444444; }
 
 #map-canvas {
-  width: 80vw;
+  width: 100vw;
   height: 100vh;
-  float: left;
-  padding-left: 0; }
+  position: absolute;
+  top: 0;
+  z-index: 0; }

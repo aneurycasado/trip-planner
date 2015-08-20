@@ -5,7 +5,7 @@
   <link href = "/bower_components/bootstrap/dist/css/bootstrap.css" rel = "stylesheet" type = "text/css">
   <script src = "/bower_components/jquery/dist/jquery.js"></script>
   <script src = "/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8PTXvqrJ_Npjb-w2WQrnRoTafrQitXjU&sensor=true"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfQxgWt-LSZcEmTEN8581Uq9SzZHnpuys&sensor=true"></script>
 
   <script>
     function initialize_gmaps() {
@@ -46,7 +46,7 @@
      $("#addToDay").click(function(){
        var name = this.offsetParent.firstElementChild.innerText.slice(1).split(":")[1].slice(1);
        var type = this.offsetParent.firstElementChild.innerText.slice(1).split(":")[0]
-       var modalBody = '<div class = "list-group content" data-name = ' + name + 'data-type = ' + type + '><button type="button" data-activites = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "D1">Day 1</button><button type="button" data-activites = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "D2">Day 2</button><button type="button" data-activites = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "D3">Day 3</button><button type="button" data-activites = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "D4">Day 4</button><button type="button" data-activites = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "D5">Day 5</button></div>';
+       var modalBody = '<div class = "list-group content" data-name = ' + name + 'data-type = ' + type + '><button type="button" data-activities = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "D1">Day 1</button><button type="button" data-activities = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "D2">Day 2</button><button type="button" data-activities = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "D3">Day 3</button><button type="button" data-activities = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "D4">Day 4</button><button type="button" data-activities = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "D5">Day 5</button></div>';
        $('.modal-body').html(modalBody);
        $('.modal-title').html("<h1>Pick a day</h1>");
        $("#addToDay").hide();
@@ -88,17 +88,17 @@
         else{
           $("#addToDay").hide();
           var title = this.id
-          console.log(typeof this.dataset.activites);
+          console.log(typeof this.dataset.activities);
           title = "<h1>" + title + "</h1>"
           $('.modal-title').html(title);
-          console.log(this.dataset.activites);
-          var activites = this.dataset.activites.split(" ")
+          console.log(this.dataset.activities);
+          var activities = this.dataset.activities.split(" ")
           var restaurants = this.dataset.restaurants.split(" ");
           var hotels = this.dataset.hotels.split(" ");
           var modalBoday = "";
-          modalBody = '<h2>Activites</h2><div class = "list-group content">';
-          for(var i = 0; i < activites.length; i++){
-            modalBody = modalBody + '<li class="list-group-item">'+activites[i]+'</li>';
+          modalBody = '<h2>Activities</h2><div class = "list-group content">';
+          for(var i = 0; i < activities.length; i++){
+            modalBody = modalBody + '<li class="list-group-item">'+activities[i]+'</li>';
           }
           modalBody= modalBody+"</div>"
           modalBody = modalBody + '<h2>Restaurants</h2><div class = "list-group content">';
@@ -159,11 +159,11 @@
       <span class = "label glyphicon glyphicon-eye-open">&nbsp;Days</span>
       <span class = "getInfo glyphicon glyphicon-chevron-right" data-toggled = "off"></span>
       <div class = "list-group content">
-          <button type="button" data-activites = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "Day 1">Day 1</button>
-          <button type="button" data-activites = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "Day 2">Day 2</button>
-          <button type="button" data-activites = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "Day 3">Day 3</button>
-          <button type="button" data-activites = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "Day 4">Day 4</button>
-          <button type="button" data-activites = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "Day 5">Day 5</button>
+          <button type="button" data-activities = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "Day 1">Day 1</button>
+          <button type="button" data-activities = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "Day 2">Day 2</button>
+          <button type="button" data-activities = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "Day 3">Day 3</button>
+          <button type="button" data-activities = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "Day 4">Day 4</button>
+          <button type="button" data-activities = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "Day 5">Day 5</button>
       </div>
       <button type="button" id = "addDay" class ="btn-primary">Add another day</button>
     </div>
