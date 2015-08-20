@@ -1,16 +1,23 @@
 body{
   display:block;
   padding:0px;
+  margin: 0px;
+  width: 100%;
 }
 
 // .no-padding{
 //   padding:0px !important;
 //
 // }
+.navbar {
+    margin-bottom: 0 !important;
+    width:100%
+}
+
 
 #title {
   color: #444444;
-  padding: .4em;
+  // padding: .4em;
 }
 
 #addDay {
@@ -21,11 +28,12 @@ body{
   display:none;
 }
 
+
 #tabs{
   float:left;
   text-align:left;
-  width: 30%;
-
+  width: 20%;
+  padding-left: 0;
   .label{
     padding: .5em;
     font-size: 1.3em;
@@ -33,7 +41,6 @@ body{
     color: #444444;
 
   }
-
   .getInfo{
     padding-right:.4em;
     padding-top:.5em;
@@ -42,19 +49,18 @@ body{
     color: #444444;
 
   }
-
   .content{
     display:none;
-    font-size: .75em;
+    font-size: 1em;
     text-align: left;
   }
-
-
   li {
     list-style-type: none;
+    color: #444444;
   }
 }
 #map-canvas{
-  width:60vw;
+  width:80vw;
   height:100vh;
+  float: left;
 }
