@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon -e html,js,css ./bin/www"
+    "start": "nodemon -e html,js,scss ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.13.2",

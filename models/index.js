@@ -15,21 +15,21 @@ var placeSchema = new Schema({
 
 var hotelSchema = new Schema({
 	name: {type: String, required: true},
-	place: {type: [Schema.ObjectId], ref: 'Place'},
-	"num-stars": {type: Number, max:5, min:1},
+	place: {type: [placeSchema]},
+	"num_stars": {type: Number, max:5, min:1},
 	amenities: {type: [String], get: function(tags){ return tags.join(', ') }}
 });
 
 var activitySchema = new Schema({
 	name: {type: String, required: true},
-	place: {type: [Schema.ObjectId], ref: 'Place'},
-	"age-range": {type: String}
+	place: {type: [placeSchema]},
+	"age_range": {type: String}
 });
 
 
 var restaurantSchema = new Schema({
 	name: {type: String, required: true},
-	place: {type: [Schema.ObjectId], ref: 'Place'},
+	place: {type: [placeSchema]},
 	price: {type: Number, max:5, min:1},
 	cuisines: {type: [String], get: function(tags){ return tags.join(', ') }},
 });

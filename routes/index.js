@@ -8,10 +8,30 @@ var Hotel = require("../models/index.js").Hotel;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  //res.render('index', { title: 'Express' });
-
-  res.send('y');
-
+  var data = {};
+  var restaurant_addresses = [];
+  Restaurant.find().then(function(restaurants){
+    data['restaurants'] = restaurants;
+    for(var i = 0; i < restaurants.length; i++){
+      restaurants[i].place = restaurants[i].place[0];
+    }
+  }).then(function(){
+      Activity.find().then(function(activities){
+        data['activities'] = activities;
+      }).then(function(){
+          Hotel.find().then(function(hotels){
+          data['hotels'] = hotels;
+        }).then(function(){
+            console.log("Data");
+            res.render('index',{
+            restaurants: data['restaurants'],
+            activities: data['activities'],
+            hotels: data['hotels']
+          });
+        });
+    });
+  });
 });
+
 
 module.exports = router;

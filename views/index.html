@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+  <link href = "/styles.css" rel = "stylesheet" type = "text/css">
+  <link href = "/bower_components/bootstrap/dist/css/bootstrap.css" rel = "stylesheet" type = "text/css">
+  <script src = "/bower_components/jquery/dist/jquery.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8PTXvqrJ_Npjb-w2WQrnRoTafrQitXjU&sensor=true"></script>
+
+  <script>
+  function initialize_gmaps() {
+    // initialize new google maps LatLng object
+    var myLatlng = new google.maps.LatLng(40.705189,-74.009209);
+    // set the map options hash
+    var mapOptions = {
+        center: myLatlng,
+        zoom: 16,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    // get the maps div's HTML obj
+
+    console.log("got here");
+
+
+
+    var map_canvas_obj = document.getElementById("map-canvas");
+    // initialize a new Google Map with the options
+    var map = new google.maps.Map(map_canvas_obj, mapOptions);
+    // Add the marker to the map
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        title:"Hello World!"
+    });
+
+    console.dir(map_canvas_obj);
+    // Add the marker to the map by calling setMap()
+    marker.setMap(map);
+  }
+
+    $(document).ready(function(){
+
+      initialize_gmaps();
+
+      $(".getInfo").click(function(){
+        console.log("Cool");
+        $(this).toggleClass("glyphicon-chevron-right");
+        $(this).toggleClass("glyphicon-chevron-down");
+
+        if(this.dataset.toggled == "off"){
+          this.dataset.toggled = "on";
+          $(this).siblings(".content").css("display","block");
+
+        }else{
+         this.dataset.toggled = "off";
+          $(this).siblings(".content").css("display","none");
+        }
+      });
+
+      $(".list-group-item").click(function(){
+        console.log($(this).children('button'))//.context.id);
+      });
+    });
+
+
+
+  </script>
+</head>
+
+<body class = "container-fluid no-padding">
+
+  <nav class="navbar navbar-default">
+    <h2 id = "title">Just Go</h2>
+  </nav>
+
+  <div id = "tabs" class = "col-xs-12 no-padding">
+
+      <div class = " panel panel-default activities">
+        <span class = "label glyphicon glyphicon-tree-deciduous">&nbsp;Activities</span>
+        <span class = "getInfo glyphicon glyphicon-chevron-right" data-toggled = "off"></span>
+        <div class = "list-group content">
+          {% for activity in activities %}
+            <button type="button" name = "{{activity.name}}" age = "{{activity.age_range}}" class ="list-group-item">{{activity.name}}</button>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class = "panel panel-default restaurants">
+        <span class = "label glyphicon glyphicon-cutlery">&nbsp;Restaurants</span>
+        <span class = "getInfo glyphicon glyphicon-chevron-right" data-toggled = "off"></span>
+        <div class = "list-group content">
+          {% for restaurant in restaurants %}
+            <button type="button" name = "{{restaurant.name}}"  price = "{{restaurant.price}}" cuisines = "{{restaurant.cuisines}}" address = "{{restaurant.place.address}}" class ="list-group-item" >{{restaurant.name}}</button>
+          {% endfor %}
+        </div>
+      </div>
+
+     <div class = "panel panel-default hotels">
+        <span class = "label glyphicon glyphicon-home">&nbsp;Hotels</span>
+        <span class = "getInfo glyphicon glyphicon-chevron-right" data-toggled = "off"></span>
+        <div class = "list-group content">
+            {% for hotel in hotels %}
+              <button type="button" name = "{{hotel.name}}"  num_stars = "{{hotel.num_stars}}" amenities = "{{hotel.amenities}}" class ="list-group-item">{{hotel.name}}</button>
+            {% endfor %}
+        </div>
+     </div>
+
+  </div>
+
+ <div id = "map-canvas"></div>
+
+
+</body>
+<footer>
+</footer>
+</html>

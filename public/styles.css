@@ -1,0 +1,33 @@
+body {
+  display: block;
+  padding: 0px; }
+
+#title {
+  color: #444444;
+  padding: .4em; }
+
+#tabs {
+  float: left;
+  text-align: left;
+  width: 30%; }
+  #tabs .label {
+    padding: .5em;
+    font-size: 1.3em;
+    font-weight: 200;
+    color: #444444; }
+  #tabs .getInfo {
+    padding-right: .4em;
+    padding-top: .5em;
+    font-size: .75em;
+    float: right;
+    color: #444444; }
+  #tabs .content {
+    display: none;
+    font-size: .75em;
+    text-align: left; }
+  #tabs li {
+    list-style-type: none; }
+
+#map-canvas {
+  width: 60vw;
+  height: 100vh; }
