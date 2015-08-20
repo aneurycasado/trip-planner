@@ -4,6 +4,8 @@
   <link href = "/styles.css" rel = "stylesheet" type = "text/css">
   <link href = "/bower_components/bootstrap/dist/css/bootstrap.css" rel = "stylesheet" type = "text/css">
   <script src = "/bower_components/jquery/dist/jquery.js"></script>
+    <script src = "/bower_components/bootstrap/dist/bootstrap.js"></script>
+
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8PTXvqrJ_Npjb-w2WQrnRoTafrQitXjU&sensor=true"></script>
 
   <script>
@@ -55,17 +57,67 @@
         }
       });
 
-      $(".list-group-item").click(function(){
-        console.log($(this).children('button'))//.context.id);
-      });
+
     });
 
+	
+	//will call the modal on start
+	$('#myModal').modal();
 
+	//make sure the 
+      $(".list-group-item").click(function(){
+	  
+		//in case things bug out ;)
+		console.dir(this);
+	  		
+		//set modal title to name of list group 
+		$('.modal-title').text(this.dataset.name);
+		
+		//to eventually be inserted into modal-body
+		var newModalBody = [];
 
+		//scroll through all props in the dataset of whatever list group was clicked 
+        for(var data in this.dataset){
+			///name is already the title
+			if(data !== "name"){
+			
+			//and add it to the newModalBody
+			newModalBody.push(name + ":" this.dataset[data]);
+				
+			}
+		}
+		
+		//sets the modals body to be newModal body
+		$('.modal-body').text(newModalBody.join(','));
+		
+		//show the Modal
+		$('#myModal').modal();
+		
+      });
+	
+	
   </script>
 </head>
 
 <body class = "container-fluid no-padding">
+
+<div id = "myModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
   <nav class="navbar navbar-default">
     <h2 id = "title">Just Go</h2>
@@ -78,7 +130,7 @@
         <span class = "getInfo glyphicon glyphicon-chevron-right" data-toggled = "off"></span>
         <div class = "list-group content">
           {% for activity in activities %}
-            <button type="button" name = "{{activity.name}}" age = "{{activity.age_range}}" class ="list-group-item">{{activity.name}}</button>
+            <button type="button" data-name = "{{activity.name}}" data-age = "{{activity.age_range}}" class ="list-group-item">{{activity.name}}</button>
           {% endfor %}
         </div>
       </div>
@@ -88,7 +140,7 @@
         <span class = "getInfo glyphicon glyphicon-chevron-right" data-toggled = "off"></span>
         <div class = "list-group content">
           {% for restaurant in restaurants %}
-            <button type="button" name = "{{restaurant.name}}"  price = "{{restaurant.price}}" cuisines = "{{restaurant.cuisines}}" address = "{{restaurant.place.address}}" class ="list-group-item" >{{restaurant.name}}</button>
+            <button type="button" data-name = "{{restaurant.name}}"  data-price = "{{restaurant.price}}" data-cuisines = "{{restaurant.cuisines}}" address = "{{restaurant.place.address}}" class ="list-group-item" >{{restaurant.name}}</button>
           {% endfor %}
         </div>
       </div>
@@ -98,7 +150,7 @@
         <span class = "getInfo glyphicon glyphicon-chevron-right" data-toggled = "off"></span>
         <div class = "list-group content">
             {% for hotel in hotels %}
-              <button type="button" name = "{{hotel.name}}"  num_stars = "{{hotel.num_stars}}" amenities = "{{hotel.amenities}}" class ="list-group-item">{{hotel.name}}</button>
+              <button type="button" data-name = "{{hotel.name}}"  data-num_stars = "{{hotel.num_stars}}" data-amenities = "{{hotel.amenities}}" class ="list-group-item">{{hotel.name}}</button>
             {% endfor %}
         </div>
      </div>
