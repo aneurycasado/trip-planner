@@ -44,4 +44,5 @@ body {
 #map-canvas {
   width: 80vw;
   height: 100vh;
-  float: left; }
+  float: left;
+  padding-left: 0; }

@@ -142,69 +142,63 @@
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Brand</a>
+        <a class="navbar-brand active" href="#">Just Go</a>
       </div>
 
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
+        <li><a href="#">About <span class="sr-only">(current)</span></a></li>
+        <li class = "active"><a href="#">Plan</a></li>
+        <li><a href="#">Contact</a></li>
       </ul>
 
     </div>
   </nav>
-  <!-- <ol class="breadcrumb">
-    <li class="active"><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Contact</a</li>
-  </ol> -->
+  <div id = "tabs" class = "col-xs-12 col-sm-12 col-md-2 col-lg-2">
 
-    <div id = "tabs" class = "col-xs-12 col-sm-4 col-md-4 col-lg-4">
-
-      <div class = " panel panel-default days">
-        <span class = "label glyphicon glyphicon-eye-open">&nbsp;Days</span>
-        <span class = "getInfo glyphicon glyphicon-chevron-right" data-toggled = "off"></span>
-        <div class = "list-group content">
-            <button type="button" data-activites = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "Day 1">Day 1</button>
-            <button type="button" data-activites = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "Day 2">Day 2</button>
-            <button type="button" data-activites = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "Day 3">Day 3</button>
-            <button type="button" data-activites = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "Day 4">Day 4</button>
-            <button type="button" data-activites = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "Day 5">Day 5</button>
-        </div>
-        <button type="button" id = "addDay" class ="btn-primary">Add another day</button>
+    <div class = " panel panel-default days">
+      <span class = "label glyphicon glyphicon-eye-open">&nbsp;Days</span>
+      <span class = "getInfo glyphicon glyphicon-chevron-right" data-toggled = "off"></span>
+      <div class = "list-group content">
+          <button type="button" data-activites = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "Day 1">Day 1</button>
+          <button type="button" data-activites = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "Day 2">Day 2</button>
+          <button type="button" data-activites = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "Day 3">Day 3</button>
+          <button type="button" data-activites = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "Day 4">Day 4</button>
+          <button type="button" data-activites = "" data-restaurants = "" data-hotels = "" class ="list-group-item" id = "Day 5">Day 5</button>
       </div>
-
-      <div class = " panel panel-default activities">
-        <span class = "label glyphicon glyphicon-tree-deciduous">&nbsp;Activities</span>
-        <span class = "getInfo glyphicon glyphicon-chevron-right" data-toggled = "off"></span>
-        <div class = "list-group content">
-          {% for activity in activities %}
-            <button type="button" data-type = "Activity" data-name = "{{activity.name}}" data-age = "{{activity.age_range}}" class ="list-group-item">{{activity.name}}</button>
-          {% endfor %}
-        </div>
-      </div>
-
-      <div class = "panel panel-default restaurants">
-        <span class = "label glyphicon glyphicon-cutlery">&nbsp;Restaurants</span>
-        <span class = "getInfo glyphicon glyphicon-chevron-right" data-toggled = "off"></span>
-        <div class = "list-group content">
-          {% for restaurant in restaurants %}
-            <button type="button" data-type = "Restaurant" data-name = "{{restaurant.name}}"  data-price = "{{restaurant.price}}" data-cuisines = "{{restaurant.cuisines}}" address = "{{restaurant.place.address}}" class ="list-group-item" >{{restaurant.name}}</button>
-          {% endfor %}
-        </div>
-      </div>
-
-       <div class = "panel panel-default hotels">
-          <span class = "label glyphicon glyphicon-home">&nbsp;Hotels</span>
-          <span class = "getInfo glyphicon glyphicon-chevron-right" data-toggled = "off"></span>
-          <div class = "list-group content">
-              {% for hotel in hotels %}
-                <button type="button" data-type = "Hotel" data-name = "{{hotel.name}}"  data-num_stars = "{{hotel.num_stars}}" data-amenities = "{{hotel.amenities}}" class ="list-group-item">{{hotel.name}}</button>
-              {% endfor %}
-          </div>
-       </div>
-
+      <button type="button" id = "addDay" class ="btn-primary">Add another day</button>
     </div>
 
+    <div class = " panel panel-default activities">
+      <span class = "label glyphicon glyphicon-tree-deciduous">&nbsp;Activities</span>
+      <span class = "getInfo glyphicon glyphicon-chevron-right" data-toggled = "off"></span>
+      <div class = "list-group content">
+        {% for activity in activities %}
+          <button type="button" data-type = "Activity" data-name = "{{activity.name}}" data-age = "{{activity.age_range}}" class ="list-group-item">{{activity.name}}</button>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class = "panel panel-default restaurants">
+      <span class = "label glyphicon glyphicon-cutlery">&nbsp;Restaurants</span>
+      <span class = "getInfo glyphicon glyphicon-chevron-right" data-toggled = "off"></span>
+      <div class = "list-group content">
+        {% for restaurant in restaurants %}
+          <button type="button" data-type = "Restaurant" data-name = "{{restaurant.name}}"  data-price = "{{restaurant.price}}" data-cuisines = "{{restaurant.cuisines}}" address = "{{restaurant.place.address}}" class ="list-group-item" >{{restaurant.name}}</button>
+        {% endfor %}
+      </div>
+    </div>
+
+     <div class = "panel panel-default hotels">
+        <span class = "label glyphicon glyphicon-home">&nbsp;Hotels</span>
+        <span class = "getInfo glyphicon glyphicon-chevron-right" data-toggled = "off"></span>
+        <div class = "list-group content">
+            {% for hotel in hotels %}
+              <button type="button" data-type = "Hotel" data-name = "{{hotel.name}}"  data-num_stars = "{{hotel.num_stars}}" data-amenities = "{{hotel.amenities}}" class ="list-group-item">{{hotel.name}}</button>
+            {% endfor %}
+        </div>
+     </div>
+
+  </div>
    <div id = "map-canvas" class = "col-xs-12 col-sm-8 col-md-8 col-lg-8"></div>
 
 </body>
